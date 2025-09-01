@@ -96,6 +96,7 @@ class Solution(object):
                 d = s[left]
                 left += 1
 
+                # 如果该字符在t中才进行操作
                 if d in need:
                     if window[d] == need[d]:
                         valid -= 1
