@@ -48,6 +48,7 @@
 #
 # 进阶：你能用
 # O(1)（即，常量）内存解决此问题吗？
+from typing import Optional
 
 
 # Definition for singly-linked list.
