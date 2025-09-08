@@ -12,6 +12,7 @@ from typing import Optional
 #         self.right = right
 class Solution:
     def pathSum(self, root: Optional[TreeNode], targetSum: int) -> int:
+        # 双重递归
         if not root:
             return 0
 
