@@ -13,6 +13,7 @@
 #
 # 输入: preorder = [-1], inorder = [-1]
 # 输出: [-1]
+from typing import List, Optional
 
 
 # Definition for a binary tree node.
