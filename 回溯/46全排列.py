@@ -17,6 +17,7 @@
 #
 # 输入：nums = [1]
 # 输出：[[1]]
+from typing import List
 
 
 class Solution:
