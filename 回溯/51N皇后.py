@@ -22,3 +22,52 @@
 # 输出：[["Q"]]
 
 
+class Solution:
+    def solveNQueens(self, n):
+        # 初始化结果集
+        res = []
+        # 初始化棋盘，开始时全部是空位 '.'
+        board = [['.' for _ in range(n)] for _ in range(n)]
+        # 初始化三个集合，用于快速判断位置是否合法
+        cols = set()
+        diag1 = set() # 正对角线：row - col
+        diag2 = set() # 反对角线：row + col
+
+        # 定义回溯函数
+        def backtrack(row):
+            # 终止条件：所有行都成功放置了皇后
+            if row == n:
+                # 将当前棋盘转换为题目要求的格式（每一行是一个字符串）
+                solution = [''.join(r) for r in board]
+                res.append(solution)
+                return
+
+            # 遍历当前行(row)的所有列
+            for col in range(n):
+                # 计算当前位置的两个对角线标识
+                d1 = row - col
+                d2 = row + col
+                # 检查当前位置是否合法
+                if col in cols or d1 in diag1 or d2 in diag2:
+                    continue # 不合法，跳过当前列
+
+                # 做出选择：放置皇后
+                board[row][col] = 'Q'
+                cols.add(col)
+                diag1.add(d1)
+                diag2.add(d2)
+
+                # 递归进入下一行
+                backtrack(row + 1)
+
+                # 撤销选择：回溯，移除皇后
+                board[row][col] = '.'
+                cols.remove(col)
+                diag1.remove(d1)
+                diag2.remove(d2)
+
+        # 从第0行开始回溯
+        backtrack(0)
+        return res
+
+
