@@ -19,6 +19,7 @@
 #
 # 输入: nums = [1, 3, 5, 6], target = 7
 # 输出: 4
+from typing import List
 
 
 class Solution:
