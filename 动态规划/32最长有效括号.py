@@ -31,6 +31,7 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
+        # 用栈来追踪括号匹配的位置。我们将不匹配的位置记录下来，然后计算最长的连续有效区间长度。
         stack = [-1]
         max_len = 0
         n = len(s)
